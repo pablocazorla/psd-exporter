@@ -1,0 +1,114 @@
+.main-container {
+  position: fixed;
+  top: @header-height + 3;
+  left: 0;
+  right: @toolbar-width;
+  bottom: 0;
+  overflow: auto;
+}
+#drop-zone {
+  position: absolute;
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  border: dashed 2px darken(@border-color, 10%);
+  background-color: #fafafa;
+  border-radius: 5px;
+  .drop-zone-msg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    text-align: center;
+    .drop-zone-msg-loading{
+        display:none;
+      }
+    .drop-zone-msg-error{
+      margin-top: 10px;
+      color:#D00;
+      font-size: 14px;
+      display:none;
+    }
+
+    &.loading{
+      .drop-zone-msg-drag{
+        display:none;
+      }
+      .drop-zone-msg-loading{
+        display:block;
+      }
+    }
+    &.error{
+      .drop-zone-msg-error{
+        display:block;
+      }
+    }
+  }
+}
+@label-color: #4BF;
+@label-color-active: #FB4;
+.psd-canvas {
+  position: relative;
+  box-shadow: 0 0 0 1px @border-color;
+  background-color: #FFF;
+  overflow: hidden;
+  margin: 10px auto;
+  .image{
+    display: block; 
+  }
+  .layer-container{
+    position: absolute;
+    top:0;left: 0;bottom: 0;right: 0;
+  }
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    box-shadow: 0 0 0 1px @label-color inset, 0 0 0 1px rgba(0, 0, 0, 0.15);
+    &:hover {
+      opacity: 1;
+    }
+    .label {
+      position: absolute;
+      background-color: @label-color;
+      color: #FFF;
+      font-size: 10px;
+      line-height: 15px;
+      padding: 0 5px;
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      &.label-name {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        border-radius: 4px;
+        background-color: #222;
+      }
+      &.label-width {
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0 0 4px 4px;
+      }
+      &.label-height {
+        top: 50%;
+        left: 0;
+        transform-origin: 0 0 0;
+        transform: rotate(-90deg) translate3d(-50%, -100%, 0);
+        border-radius: 4px 4px 0 0;
+      }
+    }
+    &.active {
+      opacity: 1;
+      box-shadow: 0 0 0 1px @label-color-active inset, 0 0 0 1px rgba(0, 0, 0, 0.15);
+      .label {
+        background-color: @label-color-active;
+      }
+    }
+  }
+}

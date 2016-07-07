@@ -1,0 +1,53 @@
+@tabber-height: 20px;
+@tabber-radius: 5px;
+.main-tabber {
+  position: absolute;
+  bottom: 0;
+  left: @logo-width + 20px;
+  right: 0;
+  height: @tabber-height;
+  .main-tabber-container{
+  	display: inline-block;
+  }
+  .tab {
+    display: inline-block;
+    line-height: @tabber-height;
+    height: @tabber-height;
+    border: 1px solid @border-color;
+    border-bottom: none;
+    border-radius: @tabber-radius @tabber-radius 0 0;
+    cursor: pointer;
+    opacity: 0.7;
+    .tab-title {
+      display: inline-block;
+      height: @tabber-height;
+      padding: 0 5px 0 15px;
+      .fa {
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+    &.active {
+      color: darken(@body-color, 20%);
+      cursor: default;
+      opacity: 1;
+      .tab-title {
+        height: @tabber-height + 3;
+        background-color: @body-background-color;
+      }
+    }
+    &.tab-plus {
+      border-color: transparent;
+      .tab-title {
+        padding: 0 5px;
+        .fa {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

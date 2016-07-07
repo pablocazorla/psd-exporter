@@ -1,0 +1,224 @@
+/* STYLE.LESS */
+/* STYLE.LESS */
+body {
+  font: 11px/1.3em 'Lato', sans-serif;
+  background-color: #F2F2F2;
+  color: #777;
+}
+h2 {
+  font-size: 16px;
+}
+.main-header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.main-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 200px;
+}
+.main-tabber {
+  position: absolute;
+  bottom: 0;
+  left: 220px;
+  right: 0;
+  height: 20px;
+}
+.main-tabber .main-tabber-container {
+  display: inline-block;
+}
+.main-tabber .tab {
+  display: inline-block;
+  line-height: 20px;
+  height: 20px;
+  border: 1px solid #DDD;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.main-tabber .tab .tab-title {
+  display: inline-block;
+  height: 20px;
+  padding: 0 5px 0 15px;
+}
+.main-tabber .tab .tab-title .fa {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.main-tabber .tab.active {
+  color: #444444;
+  cursor: default;
+  opacity: 1;
+}
+.main-tabber .tab.active .tab-title {
+  height: 23px;
+  background-color: #F2F2F2;
+}
+.main-tabber .tab.tab-plus {
+  border-color: transparent;
+}
+.main-tabber .tab.tab-plus .tab-title {
+  padding: 0 5px;
+}
+.main-tabber .tab.tab-plus .tab-title .fa {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.main-tabber .tab:hover {
+  opacity: 1;
+}
+.main-container {
+  position: fixed;
+  top: 53px;
+  left: 0;
+  right: 300px;
+  bottom: 0;
+  overflow: auto;
+}
+#drop-zone {
+  position: absolute;
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  border: dashed 2px #c4c4c4;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+#drop-zone .drop-zone-msg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: -10px;
+  text-align: center;
+}
+#drop-zone .drop-zone-msg .drop-zone-msg-loading {
+  display: none;
+}
+#drop-zone .drop-zone-msg .drop-zone-msg-error {
+  margin-top: 10px;
+  color: #D00;
+  font-size: 14px;
+  display: none;
+}
+#drop-zone .drop-zone-msg.loading .drop-zone-msg-drag {
+  display: none;
+}
+#drop-zone .drop-zone-msg.loading .drop-zone-msg-loading {
+  display: block;
+}
+#drop-zone .drop-zone-msg.error .drop-zone-msg-error {
+  display: block;
+}
+.psd-canvas {
+  position: relative;
+  box-shadow: 0 0 0 1px #DDD;
+  background-color: #FFF;
+  overflow: hidden;
+  margin: 10px auto;
+}
+.psd-canvas .image {
+  display: block;
+}
+.psd-canvas .layer-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.psd-canvas .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  box-shadow: 0 0 0 1px #4BF inset, 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.psd-canvas .layer:hover {
+  opacity: 1;
+}
+.psd-canvas .layer .label {
+  position: absolute;
+  background-color: #4BF;
+  color: #FFF;
+  font-size: 10px;
+  line-height: 15px;
+  padding: 0 5px;
+  text-align: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.psd-canvas .layer .label.label-name {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 4px;
+  background-color: #222;
+}
+.psd-canvas .layer .label.label-width {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 4px 4px;
+}
+.psd-canvas .layer .label.label-height {
+  top: 50%;
+  left: 0;
+  transform-origin: 0 0 0;
+  transform: rotate(-90deg) translate3d(-50%, -100%, 0);
+  border-radius: 4px 4px 0 0;
+}
+.psd-canvas .layer.active {
+  opacity: 1;
+  box-shadow: 0 0 0 1px #FB4 inset, 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.psd-canvas .layer.active .label {
+  background-color: #FB4;
+}
+.main-toolbar {
+  position: fixed;
+  top: 53px;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  overflow: auto;
+}
+.main-toolbar .main-toolbar-container {
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
+}
+.main-toolbar .main-toolbar-widget {
+  padding: 15px 0;
+  border-bottom: 1px dotted #DDD;
+}
+.main-toolbar .main-toolbar-widget h2 {
+  margin-bottom: 5px;
+}
+.main-toolbar .main-toolbar-widget pre {
+  min-height: 200px;
+  max-width: 400px;
+  background-color: #222;
+  color: #FFF;
+  font-size: 13px;
+  border-radius: 4px;
+}
+.main-toolbar .main-toolbar-widget .text-output {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  color: #444;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 10px;
+}

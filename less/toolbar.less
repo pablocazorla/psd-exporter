@@ -1,0 +1,36 @@
+.main-toolbar{
+	position: fixed;
+	top:@header-height+3px;
+	right: 0;
+	bottom:0;
+	width: @toolbar-width;
+	overflow: auto;
+	.main-toolbar-container{
+		width: 100%;
+		min-height: 200px;
+		padding: 15px;
+	}
+	.main-toolbar-widget{
+		padding:15px 0;
+		border-bottom: 1px dotted @border-color;
+		h2{
+			margin-bottom:5px;
+		}
+		pre{
+			min-height: 200px;
+			max-width: 400px;
+			background-color: #222;
+			color: #FFF;
+			font-size: 13px;
+			border-radius: 4px;
+		}
+		.text-output{
+			background-color: #FFF;
+			border: 1px solid @border-color;
+			color: #444;
+			font-size: 14px;
+			border-radius: 4px;
+			padding: 10px;
+		}
+	}
+}

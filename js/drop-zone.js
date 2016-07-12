@@ -1,10 +1,17 @@
-myPSD.dropzone = (function() {
+myPSD.vm.dropzoneVM = (function() {
+	var vm = {};
 
 
-	var dz = {};
+	vm.activeDocIsEmpty = ko.computed(function() {
+		var doc = myPSD.vm.docListVM.activeDoc();
+		if (doc != null) {
+			return doc.empty();
+		} else {
+			return false;
+		}
+	});
 
-
-	dz.init = function() {
+	var initDropzone = function() {
 
 		var nodeDZ = document.getElementById('drop-zone'),
 			$nodeDZ = $(nodeDZ),
@@ -31,8 +38,6 @@ myPSD.dropzone = (function() {
 					$msg.removeClass('loading');
 				}
 			},
-
-
 			onDragOver = function(e) {
 				e.stopPropagation();
 				e.preventDefault();
@@ -58,7 +63,6 @@ myPSD.dropzone = (function() {
 					} else {
 						var title = false;
 					}
-
 					if (error !== '') {
 						statusLoading(false);
 						setError();
@@ -66,7 +70,7 @@ myPSD.dropzone = (function() {
 						setTimeout(function() {
 							myPSD.PSD.fromEvent(e).then(
 								function(psd) {
-									myPSD.vm.docListVM.activeDoc.update(psd, title);
+									myPSD.vm.docListVM.activeDoc().update(psd, title);
 									statusLoading(false);
 								}
 							);
@@ -74,11 +78,14 @@ myPSD.dropzone = (function() {
 					}
 				}
 			};
-
 		nodeDZ.addEventListener('dragover', onDragOver, true);
 		nodeDZ.addEventListener('drop', onDrop, true);
 	};
 
-	return dz;
+	vm.bind = function() {
+		ko.applyBindings(vm, document.getElementById('drop-zone'));
+		initDropzone();
+	};
 
-})()
+	return vm;
+})();

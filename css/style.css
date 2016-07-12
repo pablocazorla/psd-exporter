@@ -77,7 +77,7 @@ h2 {
   opacity: 1;
 }
 .main-container {
-  position: fixed;
+  position: fixed;z-index: 9;
   top: 53px;
   left: 0;
   right: 300px;
@@ -85,8 +85,8 @@ h2 {
   overflow: auto;
 }
 #drop-zone {
-  position: absolute;
-  top: 25px;
+  position: fixed;z-index: 10;
+  top: 75px;
   bottom: 25px;
   left: 25px;
   right: 25px;
@@ -221,4 +221,13 @@ h2 {
   font-size: 14px;
   border-radius: 4px;
   padding: 10px;
+}
+.main-toolbar-message{
+  position: absolute;
+  top:50%;
+  left: 20px;
+  right:20px;
+  margin-top:-15px;
+  line-height: 30px;
+  text-align: center;
 }

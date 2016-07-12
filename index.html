@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>TEMPLATE PROJECT</title>
+  <title>PSD Exporter</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -24,19 +24,19 @@
           <span class="tab-title" data-bind="click:setActive"><span data-bind="text:title"></span> <i class="fa fa-times-circle" aria-hidden="true" data-bind="click:close"></i></span>
         </div>
       </div>
-      <div class="tab tab-plus">
+      <div class="tab tab-plus" data-bind="visible:showAddBtn">
         <span class="tab-title" data-bind="click:newDoc"><i class="fa fa-plus" aria-hidden="true"></i> Add PSD File</span>
       </div>
     </div>
   </header>
-  <div class="main-container" id="main-container">
-    <div id="drop-zone" data-bind="visible:activeIsEmpty">
-      <div class="drop-zone-msg">
-        <div class="drop-zone-msg-drag">Drag your PSD here</div>
-        <div class="drop-zone-msg-loading"><i class="fa fa-spinner fa-pulse fa-fw"></i> Loading</div>
-        <div class="drop-zone-msg-error"><span class="msg-error-text"></span>. Try again</div>
-      </div>
+  <div id="drop-zone" data-bind="visible:activeDocIsEmpty">
+    <div class="drop-zone-msg">
+      <div class="drop-zone-msg-drag">Drag your PSD here</div>
+      <div class="drop-zone-msg-loading"><i class="fa fa-spinner fa-pulse fa-fw"></i> Loading</div>
+      <div class="drop-zone-msg-error"><span class="msg-error-text"></span>. Try again</div>
     </div>
+  </div>
+  <div class="main-container" id="main-container">
     <div class="main-container-docs" data-bind="foreach: list">
       <div class="main-doc" data-bind="visible:shown,attr:{id:idNode}">
         <div class="psd-canvas" data-bind="style:{width:width,height:height}">
@@ -51,11 +51,12 @@
       </div>
     </div>
   </div>
-  <div class="main-toolbar">
-    <div class="main-toolbar-container" id="main-toolbar-container">
-      <div class="main-toolbar-widget">
+  <div class="main-toolbar" id="main-toolbar" data-bind="visible:activeDocIsNotEmpty">
+    <div class="main-toolbar-message" data-bind="visible:!showTools()"><i class="fa fa-arrow-left"></i> Select some element</div>
+    <div class="main-toolbar-container" data-bind="visible:showTools">
+      <div class="main-toolbar-widget" data-bind="visible:textVisible">
         <h2>Text</h2>
-        <div class="text-output">sdfsdfsdf sdf sdf dsf dsf sdf sdf </div>
+        <div class="text-output" data-bind="text:text"></div>
       </div>
       <div class="main-toolbar-widget">
         <h2>CSS</h2>
@@ -69,9 +70,9 @@
   <script type="text/javascript" src="js/libs/psd.js"></script>
   <script type="text/javascript" src="js/boot.js"></script>
   <script type="text/javascript" src="js/psd-parser.js"></script>
-  <script type="text/javascript" src="js/toolbar.js"></script>
   <script type="text/javascript" src="js/doc.js"></script>
   <script type="text/javascript" src="js/drop-zone.js"></script>
+  <script type="text/javascript" src="js/toolbar.js"></script>
   <script type="text/javascript" src="js/init.js"></script>
 </body>
 

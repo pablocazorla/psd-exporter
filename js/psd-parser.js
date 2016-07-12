@@ -24,6 +24,8 @@ myPSD.psdParser = function(psd) {
 			if (childExported.visible) {
 				if (childExported.type == 'layer') {
 					var el = {};
+					el.adjusts = childTree.layer.adjustments;
+					
 					el.id = elementIdCouter++;
 					el.title = childExported.name;
 
@@ -54,12 +56,17 @@ myPSD.psdParser = function(psd) {
 							indToremoveMask = -1;
 						for (var j = lenForMask - 1; j <= 0; j--) {
 							var elPrev = data.elements[j];
-							if(elPrev.top == el.top && elPrev.left == el.left && elPrev.right == el.right && elPrev.bottom == el.bottom){
+							if (elPrev.top == el.top && elPrev.left == el.left && elPrev.right == el.right && elPrev.bottom == el.bottom) {
 								indToremoveMask = j;
 							}
 						}
-						data.elements.splice(indToremoveMask,1);
+						data.elements.splice(indToremoveMask, 1);
 					}
+					//////////
+					/*************************/
+					// TEXT
+					el.text = childExported.text;
+					/*************************/
 					//////////
 					if (el.top == 0 && el.left == 0 && el.right == 0 && el.bottom == 0) {
 						// is background
